@@ -21,20 +21,20 @@ fi
 shout nf "This script comes with no guarantee. Use it at your own risk" brk
 
 # base.sh
-#shout nf "Installing base packages..."
-#install_base
-#shout nf "Installing pipewire..."
-#install_pipewire
+shout nf "Installing base packages..."
+install_base
+shout nf "Installing pipewire..."
+install_pipewire
 
 # xserver.sh
-#shout nf "Installing firejail..."
-#install_firejail
-#shout nf "Installing xserver..."
-#install_xserver
-#shout nf "Copying xserver configuration files..."
-#install_xserver_dotfiles
-#shout nf "Installing VMWare video drivers... Remove this if you are not using VMWare"
-#install_vmware_drivers
+shout nf "Installing firejail..."
+install_firejail
+shout nf "Installing xserver..."
+install_xserver
+shout nf "Copying xserver configuration files..."
+install_xserver_dotfiles
+shout nf "Installing VMWare video drivers... Remove this if you are not using VMWare"
+install_vmware_drivers
 
 # i3.sh
 shout nf "Installing picom..."
