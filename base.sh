@@ -13,7 +13,7 @@ function install_base() {
     sudo ufw enable
 
     # Install some useful packages
-    sudo apt install git psmisc wget curl network-manager network-manager-gnome -y
+    sudo apt install curl network-manager -y
 }
 
 function install_pipewire() {

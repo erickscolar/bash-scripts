@@ -1,6 +1,6 @@
 function install_firejail() {
     # Install firejail firejail and apparmor for X11 sandboxing
-    sudo apt install firejail firejail-profiles apparmor apparmor-utils -y && \
+    sudo apt install apparmor apparmor-utils firejail firejail-profiles -y && \
     
     # Enforce firejail with apparmor
     sudo aa-enforce firejail-default
@@ -13,14 +13,14 @@ function install_firejail() {
 
 function install_xserver() {
     # Install X11 and xephyr
-    sudo apt install apparmor-utils xserver-xorg-core xserver-xorg-input-evdev x11-xserver-utils x11-xkb-utils x11-utils xinit xserver-xephyr -y && \
+    sudo apt install xserver-xorg-core xserver-xorg-input-evdev x11-xserver-utils x11-xkb-utils x11-utils xinit xserver-xephyr -y && \
     
     # Remove xpra if available, we don't need it
     sudo apt remove xpra --purge -y
 }
 
 function install_xserver_dotfiles() {
-    # Copy profile, xserverrc and xinitrc to home
+    # Copy .profile, xserverrc and xinitrc to home
     cp -a $SCRIPT_DIR"/dotfiles/." ~/
 }
 

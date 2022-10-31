@@ -5,6 +5,7 @@ source "$SCRIPT_DIR/tools/shout.sh"
 source "$SCRIPT_DIR/base.sh"
 source "$SCRIPT_DIR/xserver.sh"
 source "$SCRIPT_DIR/i3.sh"
+source "$SCRIPT_DIR/eyecandy.sh"
 
 if [ ! command -v sudo &>/dev/null ]
 then
@@ -33,12 +34,19 @@ shout nf "Installing xserver..."
 install_xserver
 shout nf "Copying xserver configuration files..."
 install_xserver_dotfiles
-shout nf "Installing VMWare video drivers... Remove this if you are not using VMWare"
-install_vmware_drivers
+# For testing only
+read -p "Installing on a test environment?" T_ENV
+if [ T_ENV eq 'Y|y']
+then
+    shout nf "Installing VMWare video drivers... Remove this if you are not using VMWare"
+    install_vmware_drivers
+fi
 
 # i3.sh
 shout nf "Installing picom..."
 install_picom
+
+# eyecandy.sh
 shout nf "Installing pywal and wpgtk..."
 install_wpgtk
 shout nf "Installing i3-gaps..."
