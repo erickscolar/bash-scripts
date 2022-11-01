@@ -9,17 +9,17 @@ source "$SCRIPT_DIR/eyecandy.sh"
 
 if [ ! command -v sudo &>/dev/null ]
 then
-    shout er "sudo could not be found"
+    shout er "sudo could not be found" br
     exit
 fi
 
 if [ $EUID == 0 ]
 then
-    shout er "Do not run as root."
+    shout er "Do not run as root." br
     exit
 fi
 
-shout nf "This script comes with no guarantee. Use it at your own risk" brk
+shout nf "This script comes with no guarantee. Use it at your own risk" br
 
 # base.sh
 shout nf "Installing base packages..."
@@ -34,20 +34,16 @@ shout nf "Installing xserver..."
 install_xserver
 shout nf "Copying xserver configuration files..."
 install_xserver_dotfiles
-# For testing only
-read -p "Installing on a test environment?" T_ENV
-if [ T_ENV eq 'Y|y']
-then
-    shout nf "Installing VMWare video drivers... Remove this if you are not using VMWare"
-    install_vmware_drivers
-fi
+# For testing purposes
+shout nf "Installing VMWare video drivers... Remove this if you are not using VMWare"
+install_vmware_drivers
 
 # i3.sh
-shout nf "Installing picom..."
-install_picom
-
-# eyecandy.sh
-shout nf "Installing pywal and wpgtk..."
-install_wpgtk
 shout nf "Installing i3-gaps..."
 install_i3
+
+# eyecandy.sh
+shout nf "Installing picom..."
+install_picom
+shout nf "Installing pywal and wpgtk..."
+install_wpgtk
